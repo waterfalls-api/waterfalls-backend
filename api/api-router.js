@@ -4,7 +4,7 @@ const jwt = require("express-jwt");
 const jwks = require("jwks-rsa");
 const path = require("path");
 
-const config = require("../auth/config.js");
+const config = require("./config.js");
 
 const authCheck = jwt({
   secret: jwks.expressJwtSecret({
@@ -22,6 +22,6 @@ const authRouter = require("../auth/auth-router.js");
 const usersRouter = require("../users/users-router.js");
 
 router.use("/auth", authRouter);
-router.use("/users", usersRouter);
+router.use("/users", authCheck, usersRouter);
 
 module.exports = router;
