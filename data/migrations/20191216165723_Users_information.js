@@ -1,17 +1,20 @@
-
-exports.up = function (knex) {
-    return knex.schema.createTable('users', users => {
-        users.increments();
-        users
-            .string('username', 100)
-            .notNullable()
-            .unique();
-        users
-            .string('password', 255)
-            .notNullable();
-    });
+exports.up = function(knex) {
+  return knex.schema.createTable("users", users => {
+    users
+      .string("id", 255)
+      .notNullable()
+      .unique();
+    users
+      .string("username", 100)
+      .notNullable()
+      .unique();
+    users
+      .string("email", 255)
+      .notNullable()
+      .unique();
+  });
 };
 
-exports.down = function (knex) {
-    return knex.schema.dropTableIfExits('users');
+exports.down = function(knex) {
+  return knex.schema.dropTableIfExists("users");
 };

@@ -1,4 +1,4 @@
 module.exports = {
-  AUTH0_DOMAIN: "yourauth0domain.auth0.com",
-  AUDIENCE: "https://yourapifromauth0"
+  AUTH0_DOMAIN: "waterfalls.auth0.com",
+  AUDIENCE: "https://waterfalls-api"
 };
